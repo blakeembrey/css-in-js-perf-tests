@@ -1,9 +1,9 @@
-import FreeStyle from 'free-style';
+import { create } from 'free-style';
 import { containerStyle, buttonStyle, notUsedStyle } from '../styles';
 import { renderHtml, renderBody } from '../render';
 
 export const freeStyleCase = (caseName) => {
-    const Style = FreeStyle.create();
+    const Style = create();
 
     const html = renderBody(
         caseName,

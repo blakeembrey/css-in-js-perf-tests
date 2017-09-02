@@ -21,7 +21,14 @@ export const runTest = (testName, cases) => (
         Object.keys(testCases).forEach((caseName) => {
             testSuite.add(
                 caseName,
-                () => { testCases[caseName].result = testCases[caseName].testCase(pad(caseName)); },
+                () => {
+                    try {
+                        testCases[caseName].result = testCases[caseName].testCase(pad(caseName));
+                    } catch (err) {
+                        console.error('Failed to run', err);
+                        process.exit(1);
+                    }
+                },
             );
         });
 
